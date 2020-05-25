@@ -184,7 +184,7 @@ func (evpool *Pool) AddEvidence(evidence types.Evidence) error {
 			header = evpool.GetHeaderAtHeight(ev.Height())
 			if header == nil {
 				return fmt.Errorf("don't have block meta at height #%d", ev.Height())
-			}	
+			}
 		}
 
 		// 1) Verify against state.
@@ -305,10 +305,13 @@ func (evpool *Pool) SetLogger(l log.Logger) {
 	evpool.logger = l
 }
 
-// GetHeaderAtHeight gets the header from the block store at a specified height. Is used for validation of LunaticValidatorEvidence
+// GetHeaderAtHeight gets the header from the block store at a specified height.
+// Is used for validation of LunaticValidatorEvidence
 func (evpool *Pool) GetHeaderAtHeight(height int64) *types.Header {
 	blockMeta := evpool.blockStore.LoadBlockMeta(height)
-	if blockMeta == nil { return nil }
+	if blockMeta == nil {
+		return nil
+	}
 	return &blockMeta.Header
 }
 

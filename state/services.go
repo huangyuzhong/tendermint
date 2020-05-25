@@ -56,4 +56,4 @@ func (me MockEvidencePool) AddEvidence(types.Evidence) error        { return nil
 func (me MockEvidencePool) Update(*types.Block, State)              {}
 func (me MockEvidencePool) IsCommitted(types.Evidence) bool         { return false }
 func (me MockEvidencePool) IsPending(types.Evidence) bool           { return false }
-func (me MockEvidencePool) GetHeaderAtHeight(int64) *types.Header	{ return nil }
+func (me MockEvidencePool) GetHeaderAtHeight(int64) *types.Header   { return nil }
